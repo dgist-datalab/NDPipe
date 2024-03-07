@@ -123,11 +123,11 @@ trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --bui
 1. On the Tuner, start the server script with optional parameters:
 
 ```
-.../Tuner$ python3.9 server.py --split_number [value] --num_of_client [value] --port [value]
+.../Tuner$ python3.9 server.py --num_of_run [value] --num_of_client [value] --port [value]
 ```
-- `--num_of_run`: Sets the pipelining strength. Default is 1.
-- `--num_of_client`: The number of PipeStores. Default is 1.
-- `--port`: Socket connection port. Default is 25258.
+- `--num_of_run` or	`-r`: Sets the pipelining strength. Default is 1.
+- `--num_of_client` or `-n`: The number of PipeStores. Default is 1.
+- `--port` or `p`: Socket connection port. Default is 25258.
 
 2. Simultaneously execute the main script on each PipeStore server (specifying the port if needed).
 
