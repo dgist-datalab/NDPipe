@@ -37,36 +37,42 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 1. Clone required repository(NDPipe) into the machine.
 
 ```
+# PipeStore
 ~$ git clone https://github.com/dgist-datalab/NDPipe.git
 ```
 
 2. Generate an SSH key.
 
 ```
+# PipeStore
 ~$ ssh-keygen -t rsa
 ```
 
 3. Display the public SSH key and append it to the Tuner's authorized\_keys.
 
 ```
+# PipeStore
 ~$ cat ~/.ssh/id_rsa.pub
 ```
 
 - On the Tuner machine, run:
 
 	```
+	# Tuner
 	~$ echo [PublicKeyContent] >> ~/.ssh/authorized_keys
 	```
 
 4. Run a Docker container with NVIDIA TensorRT.
 
 ```
+# PipeStore
 ~$ docker run --gpus all -it -v ~:/DataLab --name PipeStore nvcr.io/nvidia/tensorrt:20.09-py3
 ```
 
 5. Set the environment variables for Tuner IP and username (replace placeholders with actual values):
 
 ```
+# PipeStore
 /workspace# export TUNER_IP=[Tuner IP]
 /workspace# export TUNER_USERNAME=[Tuner username]
 ```
@@ -74,6 +80,7 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 6. Add the Tuner IP to known hosts for SSH:
 
 ```
+# PipeStore
 /workspace# ssh-keyscan -H $TUNER_IP >> /NDPipe/.ssh/known_hosts
 ```
 
