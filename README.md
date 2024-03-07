@@ -87,12 +87,14 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 7. Update and upgrade the package lists:
 
 ```
+# PipeStore
 /workspace# apt update && apt upgrade
 ```
 
 8. Update pip and install required Python packages from `requirements.txt`.
 
 ```
+# PipeStore
 /workspace# cd /DataLab/NDPipe/Fine_tuning/PipeStore
 .../PipeStore# pip install -r requirements.txt
 ```
@@ -100,6 +102,7 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 9. repare the dataset directory and download the dataset:
 
 ```
+# PipeStore
 .../PipeStore# mkdir dataset
 .../PipeStore# python download_dataset.py
 ```
@@ -107,6 +110,7 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 10. (optional) If not using a T4 GPU, compile the model specifically for your GPU (e.g., for a different GPU):
 
 ```
+# PipeStore
 trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --buildOnly --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16
 ```
 
@@ -115,21 +119,24 @@ trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --bui
 1. Clone required repository(NDPipe) into the machine.
 
 ```
+# Tuner
 ~$ git clone https://github.com/dgist-datalab/NDPipe.git
 ```
 
 2. Update pip and install required Python packages from `requirements.txt`.
 
 ```
+# Tuner
 ~$ cd NDPipe/Fine_tuning/Tuner
 .../Tuner$ pip install -r requirements.txt
 ```
 
-### Running the System
+### Running the System (< 2mins to run)
 
 1. On the Tuner, start the server script with optional parameters:
 
 ```
+# Tuner
 .../Tuner$ python3.9 server.py --num_of_run [value] --num_of_client [value] --port [value]
 ```
 - `--num_of_run` or	`-r`: Sets the pipelining strength. Default is 1.
@@ -139,6 +146,7 @@ trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --bui
 2. Simultaneously execute the main script on each PipeStore server (specifying the port if needed).
 
 ```
+# PipeStore
 .../PipeStore# python main.py [port]
 ```
 - The script uses a command-line argument for the port if provided; otherwise, it defaults to 25258.
