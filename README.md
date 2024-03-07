@@ -2,7 +2,7 @@
 
 ## What is NDPipe?
 
-<img src="./NDPipe.png" width="900" height="500">
+<img src="./NDPipe.png" width="700" height="385">
 
 NDPipe is a deep learning (DL) system designed to enhance both training and inference performance by embracing the concept of near-data processing (NDP) within storage servers. At its core, NDPipe utilizes an innovative architecture that distributes storage servers equipped with cost-effective commodity GPUs across a data center.
 
