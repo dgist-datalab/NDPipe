@@ -14,7 +14,7 @@ The original paper that introduced NDPipe is currently in the revision stage of 
 
 NDPipe requires hardware configurations equipped NVIDIA GPU. We detail the AWS instance types or the alternatable NVIDIA GPU-equipped machines that are suitable for NDPipe.
 
-For running the PipeStore component, one or more instances with the following specifications are needed:
+For running the PipeStore component, one or more machines like the following specifications is required:
 
 - Amazon Machine Image (AMI): Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 20.04) version 20240228.
 - Instance Type: g4dn.2xlarge
@@ -23,7 +23,7 @@ For running the PipeStore component, one or more instances with the following sp
 	- 1 NVIDIA T4 GPU
 	- 125 GiB gp3 Storage
 
-For the Tuner component, a single instance with these specifications is required:
+For the Tuner component, a single machine like the following specifications is required:
 - Amazon Machine Image (AMI): Deep Learning Base Proprietary Nvidia Driver GPU AMI (Ubuntu 20.04) version 20240201.
 - Instance Type: p3.2xlarge
 	- 8 vCPUs
@@ -31,7 +31,7 @@ For the Tuner component, a single instance with these specifications is required
 	- 1 NVIDIA V100 GPU
 	- 125 GiB gp3 Storage
 
-Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA GPUs.
+Alternatively, NDPipe can be configured on real machines equipped with CUDA-enabled NVIDIA GPUs for both PipeStore and Tuner.
 
 ## Installation & Execution (Fine-tuning)
 
