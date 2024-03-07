@@ -12,8 +12,8 @@ transform = transforms.Compose([
         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
     ])
 
-trainset = torchvision.datasets.CIFAR100(root='./data', train=True, download=True, transform=transform)
-testset  = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform)
+trainset = torchvision.datasets.CIFAR100(root='./dataset', train=True, download=True, transform=transform)
+testset  = torchvision.datasets.CIFAR100(root='./dataset', train=False, download=True, transform=transform)
 
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=1000)
 testloader  = torch.utils.data.DataLoader(testset, batch_size=1000)
@@ -28,4 +28,5 @@ with open('./dataset/test_image.dat', 'ab') as f_image, open('./dataset/test_lab
         f_image.write(batch[0].numpy().astype(np.float16).tobytes())
         f_label.write(batch[1].numpy().astype(np.uint32).tobytes())
 
-os.system('rm -rf ./data/*')
+os.system('rm -rf ./dataset/cifar-100-python')
+os.system('rm -rf ./dataset/cifar-100-python.tar.gz')
