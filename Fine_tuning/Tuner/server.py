@@ -7,7 +7,7 @@ os.system("rm -rf *.dat")
 
 ### Get system parameters
 parser = argparse.ArgumentParser()
-parser.add_argument('--split_number', '-s', type=int, default=1, help='Set the pipelining strength\nDefault value is 1')
+parser.add_argument('--num_of_run', '-r', type=int, default=1, help='Set the pipelining strength\nDefault value is 1')
 parser.add_argument('--num_of_client', '-n', type=int, default=1, help='The number of SOFA SSDs\nDefault value is 1')
 parser.add_argument('--port', '-p', type=int, default=25258, help='Set the socket connection port\nDefault value is 25258')
 args = parser.parse_args()

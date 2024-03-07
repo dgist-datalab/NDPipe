@@ -36,8 +36,8 @@ class Model:
         self.TRT_LOGGER = trt.Logger(trt.Logger.VERBOSE)
         self.server_dir = server_dir
         self.ssh = paramiko.SSHClient()
-        self.ssh.load_host_keys(os.path.expanduser(os.path.join("..", ".ssh", "known_hosts")))
-        key = paramiko.RSAKey.from_private_key_file(os.path.join("..", ".ssh", "id_rsa"))
+        self.ssh.load_host_keys(os.path.expanduser(os.path.join("../../..", ".ssh", "known_hosts")))
+        key = paramiko.RSAKey.from_private_key_file(os.path.join("../../..", ".ssh", "id_rsa"))
         self.ssh.connect(os.environ['TUNER_IP'], username=os.environ['TUNER_USERNAME'], pkey=key)
         print("Load Cuda Engine")
         with open(engine_path, "rb") as f, trt.Runtime(self.TRT_LOGGER) as runtime:
