@@ -52,7 +52,7 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 ~$ cat ~/.ssh/id_rsa.pub
 ```
 
-	- On the Tuner machine, run:
+- On the Tuner machine, run:
 
 	```
 	~$ echo [PublicKeyContent] >> ~/.ssh/authorized_keys
