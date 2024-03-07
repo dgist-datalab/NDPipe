@@ -83,7 +83,7 @@ Alternatively, NDPipe can be configured on real machines equipped with  NVIDIA G
 
 ```
 # PipeStore
-/workspace# ssh-keyscan -H $TUNER_IP >> /NDPipe/.ssh/known_hosts
+/workspace# ssh-keyscan -H $TUNER_IP >> /DataLab/.ssh/known_hosts
 ```
 
 7. Update and upgrade the package lists:
