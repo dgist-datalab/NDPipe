@@ -1,5 +1,5 @@
 import tensorrt as trt
-import deflate, time, os, sys, gzip, gc
+import deflate, time, os, sys, gzip, gc, math
 import glob
 import numpy as np
 import pycuda.driver as cuda
