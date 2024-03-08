@@ -143,7 +143,7 @@ trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --bui
 ```
 - `--num_of_run` or	`-r`: Sets the pipelining strength. Default is 1.
 - `--num_of_client` or `-n`: The number of PipeStores. Default is 1.
-- `--port` or `p`: Socket connection port. Default is 25258.
+- `--port` or `-p`: Socket connection port. Default is 25258.
 
 2. Simultaneously execute the main script on each PipeStore server (specifying the port if needed).
 
