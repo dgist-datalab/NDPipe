@@ -10,6 +10,8 @@ NDPipe is composed of two main elements: PipeStore (storage server equipped with
 
 The original paper that introduced NDPipe is currently in the revision stage of [ACM ASPLOS 2024](https://www.asplos-conference.org/asplos2024/).
 
+The archive snapshot with a detailed screencast used in the paper is available at [![DOI](https://zenodo.org/badge/768543226.svg)](https://zenodo.org/doi/10.5281/zenodo.10796943).
+
 ## Prerequisites
 
 NDPipe requires hardware configurations equipped NVIDIA GPU. We detail the AWS instance types or the alternatable NVIDIA GPU-equipped machines that are suitable for NDPipe.
