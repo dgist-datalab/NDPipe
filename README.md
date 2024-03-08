@@ -178,7 +178,7 @@ The prerequisites for offline inference are almost identical to those required f
 .../Offline_inference# pip3 install deflate
 ```
 
-3. Download the dataset file and unzip it. This dataset is based on CIFAR-10 and contains 10,000 compressed binaries of preprocessed images.
+3. Download the dataset file and unzip it. This dataset is based on CIFAR-100 and contains 10,000 compressed binaries of preprocessed images.
 ```
 ../Offline_inference# wget https://zenodo.org/record/10409599/files/test-fio-small
 ../Offline_inference# sha256sum test-fio-small
