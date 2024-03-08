@@ -153,5 +153,39 @@ trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --bui
 ```
 - The script uses a command-line argument for the port if provided; otherwise, it defaults to 25258.
 
-## Installation & Execution (Offline-inference)
-todo
+## Installation & Execution (Offline Inference)
+
+For offline inference evaluation, we provide a simple test code. This code can be executed on the PipeStore side.
+
+### PipeStore Preparation
+
+The prerequisites for offline inference are almost identical to those required for fine-tuning.
+
+1. Follow steps 1-7 of the fine-tuning guide.
+
+2. Install the deflate module by following the instructions below:
+```
+/workspace# cd /DataLab/NDPipe/Offline_inference
+.../Offline_inference# pip3 install deflate
+```
+
+3. Download the dataset file and unzip it. This dataset is based on CIFAR-10 and contains 10,000 compressed binaries of preprocessed images.
+```
+../Offline_inference# wget https://zenodo.org/record/10409599/files/test-fio-small
+../Offline_inference# sha256sum test-fio-small
+2171a00ff770a7279383522cb5961b55d1976feeda79fea4607d1146e4fa1c69
+../Offline_inference# unzip inference_dataset.zip 
+```
+
+### Running the System (Takes < 1 min to run)
+
+1. Execute the following command: the first argument specifies the path to the model's engine, and the second argument specifies the dataset path.
+```
+python3 inference_test.py resnet50.engine image/
+```
+
+2. Review the inference results. In this test, we provide two pieces of information: the elapsed time for inference and the inference throughput.
+```
+[NDPipe] inference time: 12.25sec
+[NDPipe] inference throughput : 863.53IPS
+```
