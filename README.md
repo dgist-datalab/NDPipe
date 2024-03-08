@@ -170,7 +170,7 @@ For offline inference evaluation, we provide a simple test code. This code can b
 
 The prerequisites for offline inference are almost identical to those required for fine-tuning.
 
-1. Follow steps 1-7 of the fine-tuning guide (Only PipeStore setup is needed).
+1. Follow steps 1-8 of the fine-tuning guide (Only PipeStore setup is needed).
 
 2. Install the deflate module by following the instructions below:
 ```
