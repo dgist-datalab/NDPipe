@@ -153,6 +153,15 @@ trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --bui
 ```
 - The script uses a command-line argument for the port if provided; otherwise, it defaults to 25258.
 
+3. Review the inference results. In this test, we provide two pieces of information: the elapsed time for the feature extraction time/throughput (executed in PipeStore) and the overall fine-tuning time.
+
+```
+# In AWS setting
+Feature extraction time (sec):               31.360074814000654
+Feature extraction throughput (image/sec):   1913.2607417509444
+Overall fine-tuning time (sec):              75.19124622900017
+```
+
 ## Installation & Execution (Offline Inference)
 
 For offline inference evaluation, we provide a simple test code. This code can be executed on the PipeStore side.
@@ -161,7 +170,7 @@ For offline inference evaluation, we provide a simple test code. This code can b
 
 The prerequisites for offline inference are almost identical to those required for fine-tuning.
 
-1. Follow steps 1-7 of the fine-tuning guide.
+1. Follow steps 1-7 of the fine-tuning guide (Only PipeStore setup is needed).
 
 2. Install the deflate module by following the instructions below:
 ```
@@ -176,6 +185,12 @@ The prerequisites for offline inference are almost identical to those required f
 2171a00ff770a7279383522cb5961b55d1976feeda79fea4607d1146e4fa1c69
 ../Offline_inference# unzip inference_dataset.zip 
 ```
+
+4. Compile the model specifically for your GPU
+```
+trtexec --onnx=resnet50.onnx --workspace=8192 --saveEngine=resnet50.engine --buildOnly --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16
+```
+
 
 ### Running the System (Takes < 1 min to run)
 

@@ -28,12 +28,11 @@ start_message = '''===================================================
 ===================================================
                     ASPLOS 2024
 ---------------------------------------------------'''
-print(start_message)
 
 overall_start = time.perf_counter()
 
 ### Set communication to clients(SOFA SSDs)
-comm = CommUnit(args.split_number, args.num_of_client, args.port, client=CLIENT)
+comm = CommUnit(args.num_of_run, args.num_of_client, args.port, client=CLIENT)
 comm.get_SSD_path()
 comm.send_message(f'dir:{os.path.abspath(os.path.join(os.path.realpath(__file__), os.pardir))}', True)
 comm.get_message("Feature Extraction Started")
