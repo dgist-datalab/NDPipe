@@ -65,15 +65,24 @@ Alternatively, NDPipe can be configured on real machines equipped with CUDA-enab
 	# Tuner
 	~$ echo [PublicKeyContent] >> ~/.ssh/authorized_keys
 	```
+4. Install the NVIDIA-toolkit
+   
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
 
-4. Run a Docker container with NVIDIA TensorRT.
+5. Run a Docker container with NVIDIA TensorRT.
 
 ```
 # PipeStore
 ~$ docker run --gpus all -it -v ~:/DataLab --name PipeStore nvcr.io/nvidia/tensorrt:20.09-py3
 ```
 
-5. Set the environment variables for Tuner IP and username (replace placeholders with actual values):
+6. Set the environment variables for Tuner IP and username (replace placeholders with actual values):
 
 ```
 # PipeStore
@@ -81,21 +90,21 @@ Alternatively, NDPipe can be configured on real machines equipped with CUDA-enab
 /workspace# export TUNER_USERNAME=[Tuner username]
 ```
 
-6. Add the Tuner IP to known hosts for SSH:
+7. Add the Tuner IP to known hosts for SSH:
 
 ```
 # PipeStore
 /workspace# ssh-keyscan -H $TUNER_IP >> /DataLab/.ssh/known_hosts
 ```
 
-7. Update and upgrade the package lists:
+8. Update and upgrade the package lists:
 
 ```
 # PipeStore
 /workspace# apt update && apt upgrade
 ```
 
-8. Update pip and install required Python packages from `requirements.txt`.
+9. Update pip and install required Python packages from `requirements.txt`.
 
 ```
 # PipeStore
@@ -103,7 +112,7 @@ Alternatively, NDPipe can be configured on real machines equipped with CUDA-enab
 .../PipeStore# pip install -r requirements.txt
 ```
 
-9. repare the dataset directory and download the dataset:
+10. repare the dataset directory and download the dataset:
 
 ```
 # PipeStore
@@ -111,7 +120,7 @@ Alternatively, NDPipe can be configured on real machines equipped with CUDA-enab
 .../PipeStore# python download_dataset.py
 ```
 
-10. (optional) If not using a T4 GPU, compile the model specifically for your GPU (e.g., for a different GPU):
+11. (optional) If not using a T4 GPU, compile the model specifically for your GPU (e.g., for a different GPU):
 
 ```
 # PipeStore
@@ -172,7 +181,7 @@ For offline inference evaluation, we provide a simple test code. This code can b
 
 The prerequisites for offline inference are almost identical to those required for fine-tuning.
 
-1. Follow steps 1-8 of the fine-tuning guide (Only PipeStore setup is needed).
+1. Follow steps 1-9 of the fine-tuning guide (Only PipeStore setup is needed).
 
 2. Install the deflate module by following the instructions below:
 ```
