@@ -212,6 +212,6 @@ python3 inference_test.py resnet50.engine image/
 
 2. Review the inference results. In this test, we provide two pieces of information: the elapsed time for inference and the inference throughput.
 ```
-[NDPipe] inference time: 12.25sec
-[NDPipe] inference throughput : 863.53IPS
+[NDPipe] inference time: 14.78sec
+[NDPipe] inference throughput : 2417.53IPS
 ```
